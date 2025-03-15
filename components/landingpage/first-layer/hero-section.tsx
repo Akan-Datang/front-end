@@ -1,40 +1,40 @@
-"use client"
+'use client';
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-import { Button } from "@/components/ui/button"
-import { useCounterAnimation } from "@/hook/use-counter-animation"
-import { Container } from "./container"
+import { Button } from '@/components/ui/button';
+import { useCounterAnimation } from '@/hook/use-counter-animation';
+import { Container } from './container';
 
 export function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const clientCount = useCounterAnimation(isVisible ? 100 : 0)
-  const projectCount = useCounterAnimation(isVisible ? 130 : 0)
+  const clientCount = useCounterAnimation(isVisible ? 100 : 0);
+  const projectCount = useCounterAnimation(isVisible ? 130 : 0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
+          setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      observer.disconnect()
-    }
-  }, [])
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section className="py-12 md:py-16" ref={sectionRef}>
@@ -61,16 +61,21 @@ export function HeroSection() {
             className="space-y-6 order-2 lg:order-1 lg:z-10 lg:-ml-6 xl:-ml-12"
           >
             <p className="text-lg text-muted-foreground">
-              Grow your business with professional web development and top-tier cyber security.
+              Grow your business with professional web development and top-tier
+              cyber security.
             </p>
 
             <div className="flex gap-8">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-[#5AC2F7] dark:text-white">{clientCount}+</div>
+                <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+                  {clientCount}+
+                </div>
                 <div className="text-sm text-muted-foreground">Clients</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-[#5AC2F7] dark:text-white">{projectCount}+</div>
+                <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+                  {projectCount}+
+                </div>
                 <div className="text-sm text-muted-foreground">Projects</div>
               </div>
             </div>
@@ -103,12 +108,13 @@ export function HeroSection() {
             className="space-y-6 order-3 lg:z-10 lg:ml-12 xl:ml-24"
           >
             <p className="text-lg text-muted-foreground">
-              Complete digital solutions—stunning websites and unbeatable security.
+              Complete digital solutions—stunning websites and unbeatable
+              security.
             </p>
 
             <Button
               className="bg-[#5ABEE6] hover:bg-[#4AB1E6] text-white 
-              dark:bg-white dark:text-black dark:hover:bg-gray-300 transition-colors"
+  dark:bg-white dark:text-black dark:hover:bg-gray-300 transition-colors"
             >
               Explore Our Services
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -117,5 +123,5 @@ export function HeroSection() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
