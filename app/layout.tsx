@@ -1,24 +1,41 @@
-import type React from "react";
-import "./globals.css";
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type React from 'react';
+import '@/app/globals.css';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import type { Metadata } from 'next';
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
+import { ThemeProvider } from '@/components/landingpage/first-layer/theme-provider';
+import { ThemeContextProvider } from '@/components/landingpage/first-layer/theme-contex-provider';
+import { SiteHeader } from '@/components/landingpage/first-layer/site-header';
+
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Project Name",
-  description: "Project Name",
+  title: 'Linea - Web & Security Solutions',
+  description: 'Empowering Your Business with Smart Web & Security Solutions',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={plusJakartaSans.className}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+          storageKey="linea-theme"
+        >
+          <ThemeContextProvider>
+            <div className="min-h-screen bg-background text-foreground">
+              <SiteHeader />
+              {children}
+            </div>
+          </ThemeContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
