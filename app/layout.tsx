@@ -5,7 +5,8 @@ import type { Metadata } from 'next';
 
 import { ThemeProvider } from '@/components/landingpage/first-layer/theme-provider';
 import { ThemeContextProvider } from '@/components/landingpage/first-layer/theme-contex-provider';
-import { SiteHeader } from '@/components/landingpage/first-layer/site-header';
+import { SiteHeader } from '@/components/site-header';
+import { Footer } from '@/components/footer';
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -30,9 +31,10 @@ export default function RootLayout({
           storageKey="linea-theme"
         >
           <ThemeContextProvider>
-            <div className="min-h-screen bg-background text-foreground">
+            <div className="min-h-screen bg-background text-foreground flex flex-col">
               <SiteHeader />
-              {children}
+              <main className="flex-grow">{children}</main>
+              <Footer />
             </div>
           </ThemeContextProvider>
         </ThemeProvider>
