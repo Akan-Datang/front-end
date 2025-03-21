@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import { Button } from '@/components/ui/button';
-import { useCounterAnimation } from '@/hook/use-counter-animation';
+import { useCounterAnimation } from '@/hooks/use-counter-animation';
 import { Container } from './container';
 
 export function HeroSection() {

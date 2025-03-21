@@ -29,11 +29,11 @@ export function SiteHeader() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src={logo} // Gunakan logo berdasarkan tema
+                src={logo}
                 alt="Site Logo"
-                width={200} // Lebar logo diperbesar
-                height={80} // Tinggi logo diperbesar
-                className="h-16 w-auto" // Ukuran logo diperbesar
+                width={200}
+                height={80}
+                className="h-16 w-auto"
                 priority
               />
               <span className="ml-2 text-2xl font-bold">TechCrafIndo</span>{' '}
