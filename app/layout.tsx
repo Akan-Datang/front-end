@@ -11,7 +11,7 @@ import { Footer } from '@/components/footer';
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Linea - Web & Security Solutions',
+  title: 'TechCrafindo',
   description: 'Empowering Your Business with Smart Web & Security Solutions',
 };
 
