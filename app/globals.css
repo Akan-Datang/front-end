@@ -70,6 +70,27 @@
   }
 }
 
+@layer utilities {
+  .transition-delay-0 {
+    transition-delay: 0ms;
+  }
+  .transition-delay-100 {
+    transition-delay: 100ms;
+  }
+  .transition-delay-200 {
+    transition-delay: 200ms;
+  }
+  .transition-delay-300 {
+    transition-delay: 300ms;
+  }
+  .transition-delay-400 {
+    transition-delay: 400ms;
+  }
+  .transition-delay-500 {
+    transition-delay: 500ms;
+  }
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
   display: none;

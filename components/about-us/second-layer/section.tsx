@@ -2,7 +2,6 @@
 
 import React from "react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { useTheme } from "next-themes"
 
 export function MissionSection() {
   // Gunakan `once: false` agar animasi bisa berulang
