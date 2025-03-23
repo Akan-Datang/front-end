@@ -5,7 +5,6 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { cn } from "@/lib/utils"
 
 export function HeroSection() {
-  // Set once to false to make animations replay when scrolling back
   const badgeAnimation = useScrollAnimation(0.1, false)
   const headingAnimation = useScrollAnimation(0.1, false)
   const textAnimation = useScrollAnimation(0.1, false)
