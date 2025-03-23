@@ -25,7 +25,6 @@ export function SiteHeader() {
       <Container>
         <div className="flex h-24 items-center justify-between">
           {' '}
-          {/* Tinggi header diperbesar */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -36,8 +35,7 @@ export function SiteHeader() {
                 className="h-16 w-auto"
                 priority
               />
-              <span className="ml-2 text-2xl font-bold">TechCrafIndo</span>{' '}
-              {/* Ukuran teks diperbesar */}
+              <span className="ml-2 text-2xl font-bold">Auriga Sakti Teknologi</span>{' '}
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -52,8 +50,7 @@ export function SiteHeader() {
             >
               <Button
                 size="sm"
-                className="hidden md:flex bg-[#5ABEE6] hover:bg-[#4AB1E6] text-white
-  dark:bg-white dark:text-black dark:hover:bg-gray-300"
+                className="hidden md:flex bg-[#5ABEE6] hover:bg-[#4AB1E6] text-white dark:bg-white dark:text-black dark:hover:bg-gray-300"
               >
                 Contact Us
               </Button>

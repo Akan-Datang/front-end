@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/ui/container"
@@ -12,6 +13,7 @@ interface BlogHeroProps {
   badgeText?: string
   longDescription?: string
   className?: string
+  sectionId?: string
 }
 
 export function BlogHero({
@@ -20,6 +22,7 @@ export function BlogHero({
   badgeText = "✨ Exploring the Future of Digital Innovation",
   longDescription,
   className,
+  sectionId = "blog-section",
 }: BlogHeroProps) {
   const { ref, shouldAnimate } = useScrollAnimation(0.1, true)
 
@@ -38,7 +41,12 @@ export function BlogHero({
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">{description}</p>
 
           <div>
-            <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">Read More</Button>
+            <Button 
+              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              asChild
+            >
+              <Link href={`#${sectionId}`}>Read More</Link>
+            </Button>
           </div>
 
           {badgeText && (
@@ -62,4 +70,3 @@ export function BlogHero({
     </section>
   )
 }
-

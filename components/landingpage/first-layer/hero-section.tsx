@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useCounterAnimation } from '@/hooks/use-counter-animation';
 import { Container } from './container';
+import { useRouter } from 'next/navigation';
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,6 +16,8 @@ export function HeroSection() {
 
   const clientCount = useCounterAnimation(isVisible ? 100 : 0);
   const projectCount = useCounterAnimation(isVisible ? 130 : 0);
+
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -113,6 +116,7 @@ export function HeroSection() {
             </p>
 
             <Button
+              onClick={() => router.push('/services')}
               className="bg-[#5ABEE6] hover:bg-[#4AB1E6] text-white 
   dark:bg-white dark:text-black dark:hover:bg-gray-300 transition-colors"
             >

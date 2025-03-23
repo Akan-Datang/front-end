@@ -20,7 +20,7 @@ export function AboutBadge({ className }: AboutBadgeProps) {
         className="inline-flex items-center px-4 py-2 rounded-full border border-primary/20 bg-background shadow-sm"
       >
         <span className="text-yellow-400 mr-2">★</span>
-        <span className="text-sm font-medium">About TechCrafindo</span>
+        <span className="text-sm font-medium">About Auriga Sakti Teknologi</span>
       </motion.div>
     </div>
   )

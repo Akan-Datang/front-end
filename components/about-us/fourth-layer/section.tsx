@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
 import { cn } from '@/lib/utils'
+import { useRouter } from 'next/navigation'
 
 interface CallToActionProps {
   className?: string
@@ -22,9 +23,8 @@ export function CallToActionSection({
   buttonText = "Contact Us",
   buttonLink = "#contact",
 }: CallToActionProps) {
-  // Setting once=false to allow re-animation when scrolling up and down
   const { ref, shouldAnimate } = useScrollAnimation(0.3, false)
-  
+  const route = useRouter()
   return (
     <section 
       ref={ref}
@@ -51,6 +51,7 @@ export function CallToActionSection({
             shouldAnimate ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           )}>
             <Button 
+              onClick={()=>route.push('/services#contact-section')}
               size="lg" 
               className="bg-sky-500 hover:bg-sky-600 text-white dark:bg-sky-600 dark:hover:bg-sky-700 rounded-full px-8"
               asChild

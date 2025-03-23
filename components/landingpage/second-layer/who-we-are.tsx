@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { StatsCard } from "./stats-card"
 import { users } from "@/lib/api/user"
+import { useRouter } from 'next/navigation'; 
 
 export function HwoWeAre() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+    const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +37,6 @@ export function HwoWeAre() {
     }
   }, [])
 
-  // Get first 2 users for the clients card
   const clientUsers = users.slice(0, 3)
 
   return (
@@ -60,7 +61,6 @@ export function HwoWeAre() {
           </motion.h1>
 
           <div className="mt-16 grid w-full gap-8 lg:grid-cols-2">
-            {/* Left Column */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
@@ -75,6 +75,7 @@ export function HwoWeAre() {
                 </p>
               </div>
               <Button
+              onClick={()=> router.push('/about-us')}
                 className="mt-8 self-start bg-[#5CC1E0] text-white hover:bg-[#4BA8C7] dark:bg-white dark:text-black dark:hover:bg-gray-300"
                 size="lg"
               >

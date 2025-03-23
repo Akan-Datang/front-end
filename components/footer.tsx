@@ -11,7 +11,6 @@ export function Footer() {
       ></div>
       <footer className="bg-sky-400 dark:bg-white w-full py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top section with headings and subscription */}
           <div className="flex flex-col mb-16">
             <div className="text-white dark:text-gray-800 mb-6">
               <h2 className="text-3xl font-bold mb-2">Stay Connected.</h2>
@@ -19,7 +18,6 @@ export function Footer() {
               
               <div className="w-full max-w-xl">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  {/* Input and Subscribe Button */}
                   <div className="flex-grow w-full">
                     <div className="flex items-center rounded-full overflow-hidden bg-white dark:bg-gray-100 border border-gray-300 dark:border-gray-300 shadow-md px-5 py-1.5">
                       <input 
@@ -33,7 +31,6 @@ export function Footer() {
                     </div>
                   </div>
 
-                  {/* Social Media Icons */}
                   <div className="flex space-x-4 mt-4 sm:mt-0 w-full sm:w-auto justify-center sm:justify-start">
                     <Link href="https://twitter.com" aria-label="Twitter">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white dark:text-gray-700">
@@ -70,43 +67,39 @@ export function Footer() {
               </div>
             </div>
           </div>
-          
-          {/* Lower section with logo and links */}
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-white dark:text-gray-800">
-            {/* Logo Column */}
             <div className="md:col-span-4">
               <div className="flex items-center mb-6">
                 <div className="mr-3">
                   <Image src="/landing/Logo.png" alt="Logo" width={50} height={50} />
                 </div>
-                  <span className="text-2xl font-bold">TechCrafindo</span>
+                  <span className="text-2xl font-bold">Auriga Sakti Teknologi</span>
               </div>
-              <p className="text-sm">Copyright © 2025 TechCrafindo. All Rights Reserved</p>
+              <p className="text-sm">Copyright © 2025 Auriga Sakti Teknologi. All Rights Reserved</p>
             </div>
 
-            {/* Spacer column */}
             <div className="hidden md:block md:col-span-2"></div>
 
-            {/* First Information Column */}
             <div className="md:col-span-3">
               <h3 className="text-lg font-semibold mb-4">Information</h3>
               <ul className="space-y-3">
-                <li><Link href="/about" className="hover:underline">About Our Company</Link></li>
-                <li><Link href="/careers" className="hover:underline">Careers</Link></li>
-                <li><Link href="/support" className="hover:underline">Technical Support</Link></li>
-                <li><Link href="/terms" className="hover:underline">Terms & Condition</Link></li>
+                <li><Link href="/about-us" className="hover:underline">About Our Company</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Careers</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Technical Support</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Terms & Condition</Link></li>
               </ul>
             </div>
 
             {/* Second Information Column */}
             <div className="md:col-span-3">
-              <h3 className="text-lg font-semibold mb-4">Information</h3>
+              <h3 className="text-lg font-semibold mb-4">Usefull Link</h3>
               <ul className="space-y-3">
-                <li><Link href="/privacy" className="hover:underline">Privacy Policy</Link></li>
-                <li><Link href="/cookies" className="hover:underline">Cookies</Link></li>
-                <li><Link href="/accessibility" className="hover:underline">Accessibility</Link></li>
-                <li><Link href="/contact" className="hover:underline">Contact Us</Link></li>
-                <li><Link href="/privacy-settings" className="hover:underline">Privacy Settings</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Privacy Policy</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Cookies</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Accessibility</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Contact Us</Link></li>
+                <li><Link href="/not-found" className="hover:underline">Privacy Settings</Link></li>
               </ul>
             </div>
           </div>

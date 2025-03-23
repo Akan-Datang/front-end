@@ -23,7 +23,7 @@ export function CompanyDescription({ className }: CompanyDescriptionProps) {
           className="max-w-3xl mx-auto text-center"
         >
           <p className="text-base md:text-lg leading-relaxed">
-            TechCrafindo is a technology-driven company dedicated to delivering high-quality web development and
+            Auriga Sakti Teknologi is a technology-driven company dedicated to delivering high-quality web development and
             cybersecurity solutions. We specialize in creating secure, scalable, and innovative digital platforms
             tailored to meet modern business needs. With a team of experienced developers and security experts, we
             ensure that every website, application, and digital solution we build is not only functional and

@@ -32,7 +32,7 @@ export function HeroSection({ className }: HeroSectionProps) {
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             className="text-muted-foreground max-w-3xl mb-10 text-base md:text-lg"
           >
-            At TechCrafindo, we combine cutting-edge web development with top-tier cybersecurity to help businesses
+            At Auriga Sakti Teknologi, we combine cutting-edge web development with top-tier cybersecurity to help businesses
             thrive safely in the digital world. Your security and success are our priorities.
           </motion.p>
           <motion.div
@@ -43,7 +43,7 @@ export function HeroSection({ className }: HeroSectionProps) {
           >
             <Image
               src="/aboutus/about.png"
-              alt="TechCrafindo Team"
+              alt="Auriga Sakti Teknologi Team"
               width={800}
               height={400}
               className="w-full h-auto object-contain"
