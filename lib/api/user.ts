@@ -14,35 +14,35 @@ export interface User {
 export const users: User[] = [
   {
     id: "1",
-    name: "Jane Doe",
-    avatar: "/profile/pfp.avif",
-    role: "Business Owner",
-    comment: "The team developed a stunning, high-performance website for our business. Their attention to detail and responsiveness made the process smooth and hassle-free. Highly recommended!",
+    name: "Michael Thompson",
+    avatar: "/user/pfp1.jpeg",
+    role: "Startup Founder",
+    comment: "Absolutely thrilled with the website redesign! The team was professional, fast, and exceeded our expectations in every way.",
     rating: 5
   },
   {
     id: "2",
-    name: "John Smith",
-    avatar: "/profile/pfp.avif",
-    role: "Business Owner",
-    comment: "Our website is now faster, more secure, and much more user-friendly thanks to their expertise.",
+    name: "Samantha Lee",
+    avatar: "/user/pfp2.jpeg",
+    role: "Marketing Director",
+    comment: "Their expertise in UX/UI made a huge difference for our e-commerce platform. Sales have noticeably increased since the launch.",
     rating: 5
   },
   {
     id: "3",
-    name: "Alice Johnson",
-    avatar: "/profile/pfp.avif",
-    role: "Business Owner",
-    comment: "They helped us identify cyber threats and keep our data safe effortlessly.",
+    name: "David Chen",
+    avatar: "/user/pfp3.jpeg",
+    role: "Tech Entrepreneur",
+    comment: "Security and performance were our top priorities, and they delivered flawlessly. Highly recommend for any serious business.",
     rating: 5
   },
   {
     id: "4",
-    name: "Bob Brown",
-    avatar: "/profile/pfp.avif",
-    role: "Business Owner",
-    comment: "Working with this team transformed our online presence. Couldn't be happier with the results.",
-    rating: 5
+    name: "Emily Roberts",
+    avatar: "/user/pfp4.jpeg",
+    role: "Small Business Owner",
+    comment: "From the initial consultation to the final product, the entire experience was seamless. Our customers love the new design!",
+    rating: 4
   },
 ]
 

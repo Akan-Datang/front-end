@@ -3,11 +3,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container } from '@/components/ui/container';
 import { ArrowRight, Globe, Shield } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,14 +28,12 @@ export function Services() {
       }
     );
   
-    // Store the current value in a variable inside the effect
     const currentRef = sectionRef.current;
   
     if (currentRef) {
       observer.observe(currentRef);
     }
   
-    // Use that stored variable in the cleanup function
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
@@ -41,12 +41,11 @@ export function Services() {
     };
   }, []);
 
-  // Set hasAnimated to true after animation completes
   useEffect(() => {
     if (isVisible && !hasAnimated) {
       const timer = setTimeout(() => {
         setHasAnimated(true);
-      }, 1000); // Animation duration
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [isVisible, hasAnimated]);
@@ -95,7 +94,7 @@ export function Services() {
             <p className="text-muted-foreground mb-6">
               We design and develop modern, responsive, and high-performance websites tailored to your business needs, ensuring an engaging user experience and seamless functionality.
             </p>
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white h-10 px-4 py-2 transition-colors group">
+            <button onClick={() => router.push('/services')} className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white h-10 px-4 py-2 transition-colors group">
               View More 
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
@@ -118,7 +117,7 @@ export function Services() {
             <p className="text-muted-foreground mb-6">
               We safeguard your digital assets with cutting-edge security measures, protecting your website and business data from cyber threats, vulnerabilities, and attacks.
             </p>
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white h-10 px-4 py-2 transition-colors group">
+            <button onClick={() => router.push('/services')} className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-blue-400 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 text-white h-10 px-4 py-2 transition-colors group">
               View More 
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>

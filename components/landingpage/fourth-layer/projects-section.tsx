@@ -21,7 +21,7 @@ interface CTACardProps {
 export function ProjectsSection({
   title = "Showcasing Our Best Digital Creations",
   ctaText = "View More Projects",
-  ctaUrl = "#projects",
+  ctaUrl = "project",
 }: ProjectsSectionProps) {
   // Get projects from the API
   const projects = getProjects();
@@ -31,7 +31,7 @@ export function ProjectsSection({
   const rightProjects = projects.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-muted/30 overflow-hidden">
       <Container className="space-y-12">
         <div className="text-center">
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
@@ -77,15 +77,14 @@ function CTACard({ ctaText, ctaUrl }: CTACardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     
     useEffect(() => {
-      const currentCardRef = cardRef.current; // Store the current value in a variable
+      const currentCardRef = cardRef.current;
   
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
           }
+          // Remove the else clause to prevent repeated animations
         },
         { threshold: 0.2 }
       );
@@ -104,8 +103,9 @@ function CTACard({ ctaText, ctaUrl }: CTACardProps) {
     return (
       <div 
         ref={cardRef}
-        className={`bg-card rounded-xl shadow-sm p-6 transition-all duration-700 ease-out
-          ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-8'}`}
+        className={`bg-card rounded-xl shadow-sm p-6 transition-opacity duration-700 ease-out
+          ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        // Remove translate-y transform to prevent scroll jumps
       >
         <p className="text-card-foreground mb-4">
           Discover how we create secure and innovative digital solutions for our clients.

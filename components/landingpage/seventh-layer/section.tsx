@@ -1,14 +1,13 @@
-"use client";
-
+"use client"
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 interface ContactSectionProps {
   title?: string;
   buttonText?: string;
   className?: string;
-  onContact?: () => void;
   imageSrc?: string;
 }
 
@@ -16,41 +15,43 @@ export function Contact({
   title = "Have any questions or need more info?",
   buttonText = "Contact Us",
   className = "",
-  onContact,
-  imageSrc = "/landing/contact.png", // Default image path
+  imageSrc = "/landing/contact.png",
 }: ContactSectionProps) {
   const { theme } = useTheme();
+  const router = useRouter();
+
+  const handleContactClick = () => {
+    router.push("/services#contact-section");
+  };
 
   return (
     <section className={`relative w-full overflow-hidden ${className}`}>
-      {/* Full-width blue background */}
       <div className="absolute inset-0 bg-gradient-to-r from-sky-900 to-sky-800 dark:from-sky-900 dark:to-sky-800" />
-      
-      <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch min-h-[400px]">
-        {/* Left content area */}
+
+      <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch min-h-[150px] lg:min-h-[300px]">
         <div className="relative w-full lg:w-2/5">
-          <div className="relative z-10 p-8 md:p-16 h-full flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
+          <div className="relative z-10 p-4 py-8 md:p-8 lg:p-16 h-full flex flex-col justify-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
               {title}
             </h2>
             <Button
-              size="lg"
+              size="default"
               variant={theme === "dark" ? "outline" : "secondary"}
-              className="text-lg px-8 w-fit"
-              onClick={onContact}
+              className="text-base px-4 w-fit"
+              onClick={handleContactClick}
             >
               {buttonText}
             </Button>
           </div>
         </div>
 
-        {/* Right image area with slanted left edge */}
-        <div className="w-full lg:w-3/5 h-[400px] lg:h-auto relative">
-          {/* Slanted overlay for the image */}
+        <div className="hidden lg:block w-full lg:w-3/5 h-auto relative">
           <div className="absolute inset-0 overflow-hidden">
-            <div 
+            <div
               className="absolute inset-0 transform origin-top-left"
-              style={{ clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)" }}
+              style={{
+                clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)",
+              }}
             >
               <Image
                 src={imageSrc}

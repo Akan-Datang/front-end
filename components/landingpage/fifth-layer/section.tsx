@@ -13,19 +13,13 @@ interface Testimonial {
   rating: number;
 }
 
-// Map users to testimonials with added role, comment, and rating
 const testimonials: Testimonial[] = users.map(user => ({
   id: user.id,
   name: user.name,
   avatar: user.avatar,
-  role: "Business Owner",
-  comment: [
-    "The team developed a stunning, high-performance website for our business. Their attention to detail and responsiveness made the process smooth and hassle-free. Highly recommended!",
-    "Our website is now faster, more secure, and much more user-friendly thanks to their expertise.",
-    "They helped us identify cyber threats and keep our data safe effortlessly.",
-    "Working with this team transformed our online presence. Couldn't be happier with the results."
-  ][Math.floor(Math.random() * 4)],
-  rating: 5,
+  role: user.role,
+  comment: user.comment,
+  rating: user.rating
 }));
 
 export function Testimonial() {
@@ -42,17 +36,15 @@ export function Testimonial() {
   
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When component enters viewport
         if (entry.isIntersecting) {
           setIsVisible(true);
         } else {
-          // When component leaves viewport, reset animation state
           setIsVisible(false);
         }
       },
       {
         root: null,
-        threshold: 0.2, // Trigger when 20% of the element is visible
+        threshold: 0.2,
       }
     );
   
@@ -80,7 +72,6 @@ export function Testimonial() {
     return () => clearInterval(interval);
   }, [isDragging, isVisible]);
   
-  // Handle touch and mouse events for manual sliding
   const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
     setStartX('touches' in e ? e.touches[0].clientX : e.clientX);
@@ -94,10 +85,8 @@ export function Testimonial() {
     
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        // Swiped left
         setActiveIndex((prev) => (prev + 1) % testimonials.length);
       } else {
-        // Swiped right
         setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
       }
       setIsDragging(false);
@@ -147,19 +136,19 @@ export function Testimonial() {
               let opacity = 1;
               
               if (position === 0) {
-                xPosition = 0; // Center (active)
+                xPosition = 0;
                 opacity = 1;
               } else if (position === 1) {
-                xPosition = 100; // Right
+                xPosition = 100;
                 opacity = 0.7;
               } else if (position === testimonials.length - 1) {
-                xPosition = -100; // Left
+                xPosition = -100;
                 opacity = 0.7;
               } else if (position < testimonials.length / 2) {
-                xPosition = 200; // Far right
+                xPosition = 200;
                 opacity = 0;
               } else {
-                xPosition = -200; // Far left
+                xPosition = -200;
                 opacity = 0;
               }
               
