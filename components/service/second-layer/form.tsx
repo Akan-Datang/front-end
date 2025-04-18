@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,16 @@ export function ContactForm() {
     message: "",
   });
 
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    } else {
+      console.error("EmailJS public key is not defined in environment variables");
+    }
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,11 +31,22 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Validate environment variables
+    if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
+        !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 
+        !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      toast.error("Email service configuration is missing. Please check your environment variables.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+      console.error("Missing EmailJS environment variables");
+      return;
+    }
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         {
           subject: `Website Service - ${formData.serviceInterest}`,
           fullName: formData.fullName || "Tidak diisi",
@@ -34,7 +55,7 @@ export function ContactForm() {
           serviceInterest: formData.serviceInterest || "Tidak diisi",
           message: formData.message || "Tidak diisi",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       toast.success("Pesan berhasil dikirim!", {

@@ -31,7 +31,7 @@ export function ProjectsSection({
   const rightProjects = projects.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="py-16 bg-muted/30 overflow-hidden">
+    <section className="py-16 bg-muted/30">
       <Container className="space-y-12">
         <div className="text-center">
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
